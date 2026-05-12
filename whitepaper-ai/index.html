@@ -1,399 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Confronting the Three Hidden Risks That Undermine Value of AI in AEC</title>
+  <title>Confronting the Three Hidden Risks That Undermine Value of AI in AEC | HSO</title>
+  <meta name="description" content="Drive meaningful business outcomes with Microsoft Dynamics 365, Microsoft Fabric, and Copilot." />
   <style>
-    /* Variables & Root */
-    :root {
-      --navy: #061426;
-      --blue: #15325f;
-      --orange: #e77735;
-      --text: #52606b;
-      --heading: #061426;
-      --green: #17723d;
-      --line: #e9edf2;
+    :root{
+      --bg:#f7f8fb;--card:#ffffff;--text:#172033;--muted:#647085;--brand:#0d3f75;--brand2:#00a3ad;--line:#e4e8ef;--accent:#eef8fb;--quote:#143f6b;
     }
-
-    /* Global Resets */
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      background: #fff;
-      color: var(--text);
-      font-family: "Inter", "Segoe UI", Arial, sans-serif;
-      font-size: 15px;
-      line-height: 1.72;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Layout Containers */
-    .page {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 18px 15px 0;
-    }
-
-    .hero {
-      height: 340px;
-      padding: 42px 55px;
-      background-color: #102753;
-      background-image:
-        linear-gradient(90deg, rgba(5, 18, 39, .96), rgba(20, 54, 113, .94)),
-        linear-gradient(45deg, rgba(255, 255, 255, .04) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, .04) 75%),
-        linear-gradient(45deg, rgba(255, 255, 255, .04) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, .04) 75%);
-      background-position: 0 0, 0 0, 24px 24px;
-      background-size: auto, 48px 48px, 48px 48px;
-      color: #fff;
-    }
-
-    /* Typography & Headers */
-    h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 44px;
-      line-height: 1.08;
-      margin: 0 0 24px;
-      max-width: 720px;
-      color: #fff;
-      letter-spacing: -.025em;
-      font-weight: 700;
-    }
-
-    h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--heading);
-      font-size: 31px;
-      line-height: 1.18;
-      margin: 0 0 28px;
-      font-weight: 700;
-      letter-spacing: -.02em;
-    }
-
-    h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--heading);
-      font-size: 30px;
-      line-height: 1.15;
-      margin: 8px 0 22px;
-      font-weight: 700;
-      letter-spacing: -.02em;
-    }
-
-    p {
-      margin: 0 0 18px;
-    }
-
-    a {
-      color: #2866d6;
-      font-weight: 700;
-      text-decoration: underline;
-    }
-
-    /* Components */
-    .badge {
-      display: inline-block;
-      border: 1px solid rgba(231, 119, 53, .58);
-      color: #f07c3c;
-      border-radius: 18px;
-      padding: 4px 18px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      background: rgba(231, 119, 53, .08);
-      margin-bottom: 25px;
-    }
-
-    .hero p {
-      margin: 0;
-      color: #d9e5ee;
-      max-width: 650px;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    .meta {
-      display: flex;
-      gap: 35px;
-      margin-top: 36px;
-      color: #b7c3d1;
-      font-size: 13px;
-      align-items: center;
-    }
-
-    .meta span::before {
-      color: var(--orange);
-      margin-right: 8px;
-      font-weight: 700;
-    }
-
-    .m1::before { content: "◷"; }
-    .m2::before { content: "▣"; }
-    .m3::before { content: "♟"; }
-
-    .content-wrap {
-      max-width: 960px;
-      margin: 42px auto 0;
-      display: grid;
-      grid-template-columns: 470px 1fr;
-      gap: 38px;
-      align-items: start;
-    }
-
-    .main-col {
-      width: 470px;
-    }
-
-    .success {
-      background: #17763f;
-      color: white;
-      border-radius: 8px;
-      box-shadow: 0 10px 20px rgba(10, 80, 40, .22);
-      font-size: 13px;
-      padding: 18px 25px;
-      margin-top: 0;
-      font-weight: 600;
-    }
-
-    .success::before {
-      content: "✓";
-      display: inline-grid;
-      place-items: center;
-      width: 20px;
-      height: 20px;
-      border: 2px solid #5ee18d;
-      border-radius: 50%;
-      margin-right: 12px;
-      color: #5ee18d;
-      font-size: 12px;
-    }
-
-    .chapter, .risk-label {
-      color: #f07c3c;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      font-size: 10px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    /* Media/Images */
-    .hero-img, .section-img {
-      width: 100%;
-      display: block;
-      border-radius: 7px;
-      box-shadow: 0 8px 18px rgba(10, 20, 35, .08);
-      object-fit: cover;
-      margin: 0 0 24px;
-    }
-
-    .hero-img {
-      height: auto;
-      margin-bottom: 25px;
-    }
-
-    .section-img {
-      height: auto;
-    }
-
-    /* Specialized Containers */
-    .quote {
-      position: relative;
-      background: #061426;
-      color: white;
-      border-radius: 8px;
-      padding: 27px 32px 28px;
-      margin: 30px 0 54px;
-      box-shadow: 0 9px 20px rgba(6, 20, 38, .14);
-      font-family: Georgia, "Times New Roman", serif;
-      font-style: italic;
-      font-weight: 700;
-      font-size: 19px;
-      line-height: 1.35;
-    }
-
-    .quote:before {
-      content: "“";
-      position: absolute;
-      left: 12px;
-      top: -12px;
-      color: #7c472f;
-      opacity: .55;
-      font-size: 72px;
-      line-height: 1;
-    }
-
-    .quote cite {
-      display: block;
-      margin-top: 22px;
-      color: #f07c3c;
-      font-size: 11px;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      font-family: Arial, sans-serif;
-      font-style: normal;
-      font-weight: 800;
-    }
-
-    .card {
-      position: relative;
-      background: #fff;
-      border: 1px solid #e4e8ec;
-      border-left: 3px solid var(--orange);
-      border-radius: 10px;
-      padding: 31px 32px 34px;
-      margin: 0 0 46px;
-      box-shadow: 0 16px 30px rgba(17, 30, 47, .04);
-    }
-
-    .card+.separator {
-      margin-top: -15px;
-    }
-
-    .separator {
-      height: 1px;
-      background: #e8ebee;
-      margin: 38px 0 45px;
-      position: relative;
-    }
-
-    .separator:after {
-      content: "◷";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 20px;
-      height: 20px;
-      display: grid;
-      place-items: center;
-      border: 2px solid #f4a06f;
-      border-radius: 50%;
-      background: #fff;
-      color: #f07c3c;
-      font-size: 12px;
-    }
-
-    /* Lists */
-    ul.orange-list {
-      list-style: none;
-      padding: 0;
-      margin: 16px 0 0;
-    }
-
-    ul.orange-list li {
-      position: relative;
-      padding-left: 20px;
-      margin: 0 0 22px;
-    }
-
-    ul.orange-list li:before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #f07c3c;
-      font-size: 20px;
-      line-height: 1;
-    }
-
-    ul.orange-list strong {
-      display: block;
-      color: #172433;
-      margin-bottom: 8px;
-    }
-
-    .infographic {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 15px 28px rgba(20, 40, 60, .1);
-      margin: 18px 0 0;
-    }
-
-    .footer {
-      margin-top: 145px;
-      background: #001821;
-      color: #fff;
-      text-align: center;
-      padding: 34px 20px;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .footer a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 400;
-    }
-
-    /* Responsive */
-    @media(max-width:850px) {
-      .page { padding: 0; }
-      .hero { height: auto; padding: 38px 24px; }
-      h1 { font-size: 34px; }
-      .content-wrap { display: flex; flex-direction: column; margin: 32px auto 0; padding: 0 22px; }
-      .side { order: -1; width: 100%; max-width: 470px; margin: 0 auto 28px; }
-      .main-col { width: 100%; max-width: 470px; margin: 0 auto; }
-      .success { margin: 0 auto; max-width: 470px; }
-      .card { padding: 28px 23px; }
-    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+    a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline}
+    .topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+    .topbar-inner{max-width:1180px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-weight:800;font-size:22px;letter-spacing:.2px;color:var(--brand)}
+    .logo span{color:var(--brand2)}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:13px;background:#fff}
+    .hero{background:linear-gradient(135deg,#0d3f75 0%,#136b91 55%,#0aa3ad 100%);color:#fff;padding:72px 24px 88px;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;right:-160px;top:-120px;width:520px;height:520px;background:rgba(255,255,255,.10);border-radius:50%}
+    .hero-inner{max-width:1120px;margin:auto;position:relative;z-index:1}
+    .label{text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:800;color:#bff7ff;margin-bottom:16px}
+    h1{font-size:clamp(34px,5vw,64px);line-height:1.08;margin:0 0 22px;max-width:960px;letter-spacing:-.04em}
+    .subtitle{font-size:clamp(18px,2.1vw,24px);max-width:800px;margin:0 0 26px;color:#e9fbff}
+    .meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.meta .pill{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.24);color:#fff}
+    .wrap{max-width:1120px;margin:-44px auto 0;padding:0 24px 60px;display:grid;grid-template-columns:minmax(0,760px) 300px;gap:34px;align-items:start}
+    main{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:42px;box-shadow:0 18px 44px rgba(23,32,51,.08)}
+    aside{position:sticky;top:88px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 12px 30px rgba(23,32,51,.06)}
+    aside h3{margin-top:0;font-size:18px}.toc{list-style:none;margin:0;padding:0}.toc li{border-top:1px solid var(--line)}.toc a{display:block;padding:12px 0;color:var(--text);font-size:14px}.toc a:hover{color:var(--brand)}
+    h2{font-size:34px;line-height:1.18;margin:42px 0 16px;letter-spacing:-.03em;color:#14243d}h3{font-size:23px;margin:32px 0 12px;color:#18365b}.chapter{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--brand2);margin-top:42px}.risk{font-size:14px;font-weight:800;color:var(--brand);margin-top:40px}.lead{font-size:19px;color:#324158}.image-card{height:265px;border-radius:18px;margin:26px 0;background:linear-gradient(135deg,#dde8f2,#f8fbff);border:1px solid var(--line);position:relative;overflow:hidden}.image-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 30%,rgba(0,163,173,.28),transparent 32%),radial-gradient(circle at 75% 70%,rgba(13,63,117,.22),transparent 34%)}.image-card span{position:absolute;left:22px;bottom:18px;background:rgba(255,255,255,.86);padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;color:#20324e}.quote{background:var(--accent);border-left:5px solid var(--brand2);padding:24px 26px;border-radius:16px;margin:30px 0;font-size:24px;line-height:1.35;color:var(--quote);font-weight:800}.quote small{display:block;font-size:14px;color:var(--muted);font-weight:600;margin-top:10px}.callout{background:#f8fbff;border:1px solid var(--line);border-radius:18px;padding:24px;margin:28px 0}.step{padding:22px 0;border-top:1px solid var(--line)}.step:first-child{border-top:0}.step h3{margin-top:0}.checklist{padding-left:0;list-style:none}.checklist li{padding:10px 0 10px 34px;position:relative}.checklist li:before{content:"✓";position:absolute;left:0;top:8px;width:24px;height:24px;border-radius:50%;background:var(--brand2);color:white;display:grid;place-items:center;font-size:13px;font-weight:900}.thanks{margin:38px 0 0;background:linear-gradient(135deg,#eaf8ff,#fff);border:1px solid var(--line);border-radius:20px;padding:26px}.footer{border-top:1px solid var(--line);padding-top:24px;margin-top:40px;color:var(--muted);font-size:14px}.mobile-only{display:none}
+    @media(max-width:900px){.wrap{grid-template-columns:1fr}.desktop-only{display:none}.mobile-only{display:block}aside{position:static}main{padding:28px}.hero{padding:54px 20px 70px}.topbar-inner{padding:14px 20px}.image-card{height:205px}h2{font-size:28px}}
   </style>
 </head>
-
 <body>
-  <div class="page">
-
-    <section class="hero">
-      <div class="badge">Whitepaper</div>
-      <h1>Confronting the Three Hidden Risks That Undermine Value of AI in AEC</h1>
-      <p>Drive meaningful business outcomes with Microsoft Dynamics 365, Microsoft Fabric, and Copilot.</p>
-      <div class="meta">
-        <span class="m1">15 min read</span>
-        <span class="m2">Architecture, Engineering &amp; Construction</span>
-        <span class="m3">HSO</span>
-      </div>
-    </section>
-
-    <div class="content-wrap">
-      <main class="main-col">
-        <h2>AI Is Active in AEC. ROI Is Not Always Clear</h2>
-        <img src="data:image/jpeg;base64,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" alt="AI in AEC Infographic" class="section-img" />
-        <p>Drive meaningful business outcomes with Microsoft Dynamics 365, Microsoft Fabric, and Copilot.</p>
-
-        <div class="card">
-          <div class="risk-label">Risk 01</div>
-          <h3>Fragmented Data Environments</h3>
-          <ul class="orange-list">
-            <li><strong>The Silo Effect</strong> Information trapped in disconnected legacy systems prevents a unified view of project health.</li>
-            <li><strong>Inaccurate Forecasting</strong> Without real-time data integration, predictive AI models produce unreliable results.</li>
-          </ul>
-        </div>
-
-        <div class="separator"></div>
-
-        <div class="card">
-          <div class="risk-label">Risk 02</div>
-          <h3>Lack of Specialized AI Governance</h3>
-          <p>Adopting general-purpose AI without industry-specific guardrails leads to compliance and safety issues.</p>
-        </div>
-      </main>
-
-      <aside class="side">
-        <div class="success">
-          Ready to scale your AI strategy? Download our full implementation guide for AEC leaders.
-        </div>
-      </aside>
-    </div>
-
-    <footer class="footer">
-      <p>&copy; 2024 HSO. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
-    </footer>
+  <header class="topbar"><div class="topbar-inner"><div class="logo">whitepapers<span>.ai</span></div><div class="pill">HSO • Whitepaper</div></div></header>
+  <section class="hero"><div class="hero-inner"><div class="label">Whitepaper</div><h1>Confronting the Three Hidden Risks That Undermine Value of AI in AEC</h1><p class="subtitle">Drive meaningful business outcomes with Microsoft Dynamics 365, Microsoft Fabric, and Copilot.</p><div class="meta"><span class="pill">15 min read</span><span class="pill">Architecture, Engineering & Construction</span><span class="pill">HSO</span></div></div></section>
+  <div class="wrap">
+    <main>
+      <p class="thanks mobile-only"><strong>You're all set!</strong> Thank you — enjoy the full whitepaper below.</p>
+      <h2 id="intro">AI Is Active in AEC. ROI Is Not Always Clear</h2>
+      <div class="image-card"><span>Modern architecture and engineering design</span></div>
+      <p class="lead">Architecture, engineering, and construction (AEC) firms are actively investing in artificial intelligence. Copilot is being deployed across departments. Proposal teams are accelerating content creation. Finance leaders are exploring automation. Executives are testing predictive insights across projects and portfolios.</p>
+      <p>Yet despite this activity, many firms struggle to demonstrate measurable financial return.</p><p>The issue is not a lack of innovation. It is not a lack of use cases. It is not even a lack of adoption. The issue is that AI activity has outpaced strategic alignment.</p><p>In a margin-sensitive, project-driven industry, value must be measured not only in improved productivity, but importantly in revenue growth, cost reduction, and risk mitigation. AI that improves speed but does not move these metrics may remain ineffective at driving impact.</p><p>To convert AI investment into business impact, AEC leaders must address three hidden risks.</p>
+      <div class="quote">95% of organizations are getting zero return on their AI investments.<small>— MIT, The GenAI Divide: State of AI in Business 2025</small></div>
+      <div class="risk">Hidden Risk #1</div><h2 id="risk1">Misaligned Success Metrics</h2><div class="image-card"><span>Modern architecture and engineering design</span></div><p>When AI is introduced as a technology initiative rather than a business transformation effort, measurement often defaults to what is easiest to track. Usage frequency. Prompt volume. Number of licenses activated. Hours saved.</p><p>While these indicators may suggest productivity and engagement, they do not prove strategic value.</p><p>AEC firms must instead align AI success metrics to business outcomes. If the firm's objective is to increase revenue per client, AI initiatives should be evaluated based on whether they improve upsell drivers and insights or shorten BD and pursuit cycles, for example. If the goal is to improve cash flow and reduce costs, firms may want to explore AI agents that continuously monitor client payment behavior, aging receivables, and unbilled work-in-progress to minimize administrative overhead and prevent payment delays.</p><p>AI becomes meaningful when it supports measurable business objectives. Without that alignment, firms risk investing in tools that never move the financial needle.</p><div class="callout"><strong>Efficiency creates capacity.</strong> Leadership determines whether that capacity translates into value.</div>
+      <div class="risk">Hidden Risk #2</div><h2 id="risk2">Data Readiness Gaps</h2><div class="image-card"><span>Data and analytics infrastructure</span></div><p>AI depends on context. Context depends on data.</p><p>AEC firms often operate across multiple operations platforms — ERP, CRM, project management tools, spreadsheets, and shared drives. Financial data may live in one environment, client data in another, and operational metrics somewhere else entirely.</p><p>Deploying AI across fragmented systems produces fragmented insight. And when outputs are inconsistent or incomplete, trust erodes quickly. Adoption slows. Leaders question reliability. Security concerns increase. This is not a flaw in AI. It is a data foundation issue.</p><p>A unified data platform allows AI to operate with full business context. Centralizing operational, financial, and client data within a modern cloud environment strengthens reliability, improves insight quality, and enables scalable AI. Governance policies ensure that sensitive information remains protected while enabling controlled access.</p><p>For firms uncertain about their readiness, conducting a structured evaluation can clarify where to focus first. HSO’s Data Strategy Assessment & Roadmap provides a practical framework for identifying gaps and defining a phased data modernization plan aligned to business priorities.</p><p>Firms do not need perfect data to begin. But they do need clarity about where their data stands and where it needs to go.</p><div class="callout"><strong>Without context</strong> such as customer history and a single source of truth, AI can’t deliver relevant, accurate, or actionable insights.</div>
+      <div class="risk">Hidden Risk #3</div><h2 id="risk3">Change Management Blind Spots</h2><div class="image-card"><span>Data and analytics infrastructure</span></div><p>Even with aligned metrics and strong data, AI initiatives stall when people are not brought along.</p><p>AI is often introduced as a tool to deploy rather than as a shift in how work gets done. Licenses are distributed. Features are enabled. Minimal guidance is provided.</p><p>Employees are left wondering whether they can trust the output, how to use it, or whether it threatens their role.</p><p>Successful change management requires clear communication, defined acceptable-use policies, and role-specific enablement. AI must be framed not as a replacement for expertise, but as a tool that removes repetitive administrative work and elevates professional contribution.</p><p>In finance, that means shifting time toward forecasting and strategic analysis.</p><p>In marketing and business development, it means focusing more on win strategy than drafting.</p><p>In operations, it means gaining earlier visibility into project risk.</p><h3>How to mitigate change management risk</h3><p>Organizations navigating this shift often benefit from structured support for change leadership. HSO’s Change Advisory Services help align stakeholders, define governance, and ensure that AI initiatives are reinforced across the enterprise rather than isolated within IT.</p><p>When employees understand how AI strengthens their role, adoption accelerates and value compounds.</p>
+      <div class="chapter">Chapter #4</div><h2 id="impact">Moving from Activity to Impact</h2><div class="image-card"><span>Data and analytics infrastructure</span></div><p>Addressing these three risks requires focus and disciplined execution. AI value does not come from broader deployment; it comes from clearer priorities and structured scaling. AEC firms can move forward through three deliberate steps.</p><div class="step"><h3>Align AI to Strategy</h3><p>Start with measurable business outcomes. Revenue growth. Cost reduction. Risk reduction. Define success in business terms, not adoption metrics.</p><p>Identify high-impact use cases tied directly to those objectives before expanding deployment.</p><p>If the impact cannot be articulated in financial or operational terms, the initiative should not scale.</p></div><div class="step"><h3>Fix the Foundation</h3><p>Ensure AI operates on unified, governed data. Fragmented systems limit reliability and slow adoption. A clear data strategy strengthens trust and insight quality.</p><p>Unify ERP, CRM, financial, and operational data within a governed architecture. Apply classification, lineage, and security policies to protect sensitive information while enabling insight.</p><p>Progress does not require perfection, but it does require structure.</p></div><div class="step"><h3>Enable People and Processes</h3><p>AI must be embedded into how work gets done.</p><p>Redesign workflows for AI-assisted execution rather than layering AI onto outdated processes. Provide role-specific training and define clear expectations for responsible use. Create AI champions across finance, operations, HR, legal, and marketing to reinforce adoption and feedback loops.</p><p>Technology enables capability. People operationalize it.</p></div><div class="step"><h3>Scale with Guardrails</h3><p>AI should not be approached as a fixed, multi-year deployment with guaranteed outcomes. The technology evolves rapidly, and use cases mature through experimentation.</p><p>Start with focused pilots tied to defined metrics. Measure impact: cost reduction, revenue lift, and risk mitigation. Refine execution. Expand what works.</p><p>At the same time, implement governance guardrails. Monitor model outputs, reinforce data controls, and establish oversight mechanisms that ensure security, compliance, and reliability as AI scales.</p><p>Small, measurable wins build credibility. Structured oversight ensures scale does not introduce unintended risk.</p></div><div class="quote">Disciplined iteration turns experimentation into enterprise capability.</div>
+      <div class="chapter">Chapter #5</div><h2 id="imperative">The Strategic Imperative for AEC Leaders</h2><div class="image-card"><span>Data and analytics infrastructure</span></div><p>Margin pressure across the AEC industry continues to intensify. Project complexity is increasing, client expectations are rising, and economic uncertainty demands stronger forecasting and tighter cost control. In this environment, incremental productivity gains are insufficient to create a meaningful advantage.</p><p>AI, when strategically aligned, offers something more significant than speed. It enables earlier visibility into project performance, stronger financial predictability, improved cash flow management, and clearer insight into client and market opportunities. It allows leadership teams to operate with better data, faster analysis, and greater confidence in decision-making.</p><p>The firms that will gain lasting advantage are not those that deploy AI most broadly, but those that deploy it most intentionally. They will measure business impact rather than tool usage. They will strengthen their data foundation before scaling automation. They will guide their organization through the transition rather than assuming value will emerge organically.</p><p>The difference is discipline.</p><p>Some firms will continue experimenting and celebrating adoption metrics. Others will embed AI into the operational fabric of their enterprise, strengthening resilience, protecting margins, and building a more intelligent organization prepared for long-term growth.</p><p>The opportunity is significant. So is the responsibility to approach it thoughtfully.</p>
+      <div class="chapter">Chapter #6</div><h2 id="lead">The Time to Lead</h2><div class="image-card"><span>Data and analytics infrastructure</span></div><p>AI is already present in your organization. The question is whether it is governed, aligned, and delivering measurable business value.</p><p>Turning AI investment into ROI requires:</p><ul class="checklist"><li>A clear link to financial and operational objectives.</li><li>A modern, scalable data foundation.</li><li>Strong governance and transparent guardrails.</li><li>Process redesign aligned to AI capability.</li><li>An iterative roadmap grounded in measurable outcomes.</li></ul><p>AEC firms that commit to this structured approach will not simply adopt AI - they operationalize it and build a more resilient, intelligent, and profitable future.</p><div class="thanks"><strong>You're all set!</strong> Thank you — enjoy the full whitepaper below.</div><div class="footer">Copyright © 2026 Whitepapers.com.au. All rights reserved.<br/>Terms and Conditions. Privacy Policy.</div>
+    </main>
+    <aside class="desktop-only"><h3>Whitepaper sections</h3><ul class="toc"><li><a href="#intro">AI Is Active in AEC</a></li><li><a href="#risk1">Hidden Risk #1</a></li><li><a href="#risk2">Hidden Risk #2</a></li><li><a href="#risk3">Hidden Risk #3</a></li><li><a href="#impact">Moving from Activity to Impact</a></li><li><a href="#imperative">Strategic Imperative</a></li><li><a href="#lead">The Time to Lead</a></li></ul></aside>
   </div>
 </body>
-
 </html>
